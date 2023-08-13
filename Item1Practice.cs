@@ -16,7 +16,6 @@ namespace Item1Practice
             {
                 return true;
             }
-
             return false;
         }
 
@@ -74,9 +73,6 @@ namespace Item1Practice
             {
                 charArray[i] = (char)(a + i);
             }
-
-
-
             return charArray;
         }
 
@@ -148,7 +144,9 @@ namespace Item1Practice
         public static void Main()
         {
             Console.WriteLine(questionOne(5, 7));
+            
             Console.WriteLine(questionTwo(2));
+            
             foreach (char val in questionThree('h', 'c'))
             {
                 Console.WriteLine(val);
@@ -163,9 +161,6 @@ namespace Item1Practice
                 Console.WriteLine(val);
             }
         }
-
-
-
     }
 }
 
