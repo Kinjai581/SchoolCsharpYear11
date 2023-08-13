@@ -1,4 +1,4 @@
-﻿namespace Item1Practice
+namespace Item1Practice
 {
     internal class Item1PracticeSolution
     {
@@ -12,6 +12,11 @@
         */
         public static bool questionOne(int x, int y)
         {
+            if (x < y * y || y % 2 != 0)
+            {
+                return true;
+            }
+
             return false;
         }
 
@@ -27,6 +32,21 @@
          */
         public static string questionTwo(int x)
         {
+            if (x % 5 == 0 && x % 7 == 0)
+            {
+                return "Foobar!";
+            }
+
+            if (x % 5 == 0)
+            {
+                return "foo";
+            }
+
+            if (x % 7 == 0)
+            {
+                return "bar";
+            }
+
             return "";
         }
 
@@ -41,7 +61,23 @@
          */
         public static char[] questionThree(char a, char b)
         {
-            return null;
+            if (a > b)
+            {
+                char temp = b;
+                b = a;
+                a = temp;
+            }
+
+            char[] charArray = new char[b - a + 1];
+
+            for (int i = 0; i < charArray.Length; i++)
+            {
+                charArray[i] = (char)(a + i);
+            }
+
+
+
+            return charArray;
         }
 
         /* Write a C# method which accepts an integer, x, and a list of integers,
@@ -70,6 +106,18 @@
 
         public static void questionFour(int x, List<int> l)
         {
+            if (x < 0)
+            {
+                throw new NegativeNumberException("Cannot be negative.");
+            }
+
+            foreach (int val in l)
+            {
+                if (val == 0)
+                {
+                    throw new ZeroInListException("Cannot have zero in list");
+                }
+            }
         }
 
         /* Write a C# method which accepts an integer, x, and returns a stack with 
@@ -85,7 +133,13 @@
 
         public static Stack<char> questionFive(int x)
         {
-            return null;
+            Stack<char> chars = new Stack<char>();
+
+            for (int i = 0; i < x; i++)
+            {
+                chars.Push((char)('a' + i));
+            }
+            return chars;
         }
 
         // You can call and test your functions by writing code in the Main() method
@@ -93,7 +147,27 @@
         // *Only* the code in your functions (above) will be marked
         public static void Main()
         {
+            Console.WriteLine(questionOne(5, 7));
+            Console.WriteLine(questionTwo(2));
+            foreach (char val in questionThree('h', 'c'))
+            {
+                Console.WriteLine(val);
+            }
+
+            int[] list = { 2, 4, 8 };
+            List<int> list_new = new List<int>(list);
+            questionFour(10, list_new);
+
+            foreach (char val in questionFive(5))
+            {
+                Console.WriteLine(val);
+            }
         }
+
+
+
+    }
+}
 
 
 
